@@ -1,47 +1,45 @@
-# Calculadora de Índice de Massa Corporal (IMC)
+# Calculadora Aritmética Dinâmica
 
-Este repositório contém uma aplicação web de página única (SPA) para o cálculo do Índice de Massa Corporal (IMC). O projeto foca em uma interface de usuário responsiva e lógica de processamento em tempo real via JavaScript para auxiliar na avaliação rápida de categorias de peso com base nos parâmetros da Organização Mundial da Saúde (OMS).
-
-
+Este projeto apresenta uma calculadora aritmética interativa desenvolvida com tecnologias web fundamentais. A aplicação foca na manipulação direta do Document Object Model (DOM) para realizar operações matemáticas em tempo real, utilizando uma interface minimalista com alto contraste.
 
 ## Especificações Técnicas
 
-A aplicação foi desenvolvida utilizando tecnologias front-end fundamentais para garantir leveza e compatibilidade entre navegadores:
+A aplicação foi construída utilizando uma arquitetura front-end leve:
 
-1. **HTML5:** Estruturação semântica da calculadora e dos campos de entrada.
-2. **CSS3:** Estilização baseada em Flexbox para centralização dinâmica, aplicação de gradientes lineares e transições suaves de estado (hover e focus).
-3. **JavaScript (ES6):** Implementação da lógica matemática para o cálculo e estruturas condicionais para a classificação dos resultados.
+1. **HTML5:** Estruturação da interface utilizando tabelas para o alinhamento preciso do teclado numérico e operadores.
+2. **CSS3:** * Estilização baseada em gradientes lineares (45deg).
+   * Posicionamento absoluto com transformações dinâmicas para centralização em diferentes viewports.
+   * Feedback visual de interatividade através de estados de pseudo-classe (:hover).
+3. **JavaScript (ES6):**
+   * Manipulação de strings para gerenciamento do visor.
+   * Utilização da função `eval()` para processamento de expressões matemáticas complexas.
+   * Implementação de funções de edição (backspace e clear).
 
-## Funcionalidades e Lógica de Cálculo
+## Funcionalidades Implementadas
 
-O sistema processa as informações inseridas pelo usuário seguindo as seguintes etapas:
+* **Operações Básicas:** Soma, subtração, multiplicação e divisão.
+* **Sistema de Edição:** Função para apagar o último caractere inserido e função de limpeza total do visor.
+* **Lógica de Interface:** O visor detecta entradas vazias e fornece feedback visual ("Nada...") para evitar erros de execução.
+* **Layout Responsivo:** Otimizado para centralização automática em qualquer resolução de tela.
 
-* **Validação de Inputs:** O script verifica se os valores de peso e altura são positivos e se a altura está dentro de um intervalo humano plausível.
-* **Processamento Matemático:** Utiliza a fórmula padrão:
-  $$IMC = \frac{peso}{altura^2}$$
-* **Classificação Dinâmica:** O resultado é categorizado automaticamente em:
-    * Abaixo do peso (IMC < 18.5)
-    * Peso normal (18.5 <= IMC < 24.9)
-    * Sobrepeso (25 <= IMC < 29.9)
-    * Obesidade (IMC >= 30)
-* **Interface Responsiva:** O layout se adapta a diferentes dimensões de tela (viewport) utilizando unidades relativas e Box Model (border-box).
+## Lógica de Execução
 
-## Design e Experiência do Usuário (UX)
+O script JavaScript gerencia o fluxo de dados da seguinte forma:
 
-* **Tipografia:** Integração com Google Fonts (Poppins) para melhorar a legibilidade.
-* **Feedback Visual:** Uso de sombras projetadas (box-shadow) e transformações de translação (translateY) para indicar interatividade nos elementos de input e botões.
-* **Tratamento de Erros:** Exibição de mensagens de aviso caso o usuário insira caracteres inválidos ou campos vazios.
+* **insert(num):** Captura o valor atual do visor e concatena o novo dígito ou operador.
+* **back():** Utiliza o método `substring` para remover o último elemento da string do visor.
+* **calcular():** Avalia a expressão aritmética completa contida na string e renderiza o resultado final no visor.
 
-## Como Executar o Projeto
+## Como Executar
 
-Por ser uma aplicação baseada inteiramente em tecnologias client-side, não é necessário um servidor de aplicação ou gerenciadores de pacotes.
+Por ser uma aplicação estática (Client-Side), não requer instalação de dependências ou servidores:
 
-1. Clone o repositório ou baixe o arquivo HTML.
-2. Abra o arquivo `index.html` em qualquer navegador moderno.
+1. Baixe o arquivo HTML do repositório.
+2. Execute o arquivo em qualquer navegador moderno.
 
 ## Estrutura do Arquivo
 
-* **Head:** Definições de meta tags, títulos e importação de fontes externas.
-* **Style:** Definições de CSS incorporadas para carregamento rápido.
-* **Body:** Estrutura DOM da calculadora.
-* **Script:** Lógica funcional isolada para facilitar a manutenção.
+* **Fundo:** Camada de gradiente de tela cheia (100vh).
+* **Calculadora:** Container com efeito de transparência e bordas arredondadas.
+* **Display:** Visor com alinhamento à direita para melhor legibilidade numérica.
+* **Script:** Lógica funcional isolada para manipulação dos eventos de clique.
